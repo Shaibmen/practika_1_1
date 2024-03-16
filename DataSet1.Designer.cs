@@ -30,9 +30,9 @@ namespace _1PractPractika {
         
         private PriestDataTable tablePriest;
         
-        private global::System.Data.DataRelation relationFK__ChurchSer__pries__3C69FB99;
+        private global::System.Data.DataRelation relationFK__ChurchSer__churc__3C69FB99;
         
-        private global::System.Data.DataRelation relationFK__Priest__church_i__398D8EEE;
+        private global::System.Data.DataRelation relationFK__ChurchSer__pries__3B75D760;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +246,8 @@ namespace _1PractPractika {
                     this.tablePriest.InitVars();
                 }
             }
-            this.relationFK__ChurchSer__pries__3C69FB99 = this.Relations["FK__ChurchSer__pries__3C69FB99"];
-            this.relationFK__Priest__church_i__398D8EEE = this.Relations["FK__Priest__church_i__398D8EEE"];
+            this.relationFK__ChurchSer__churc__3C69FB99 = this.Relations["FK__ChurchSer__churc__3C69FB99"];
+            this.relationFK__ChurchSer__pries__3B75D760 = this.Relations["FK__ChurchSer__pries__3B75D760"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,14 +264,14 @@ namespace _1PractPractika {
             base.Tables.Add(this.tableChurchService);
             this.tablePriest = new PriestDataTable();
             base.Tables.Add(this.tablePriest);
-            this.relationFK__ChurchSer__pries__3C69FB99 = new global::System.Data.DataRelation("FK__ChurchSer__pries__3C69FB99", new global::System.Data.DataColumn[] {
+            this.relationFK__ChurchSer__churc__3C69FB99 = new global::System.Data.DataRelation("FK__ChurchSer__churc__3C69FB99", new global::System.Data.DataColumn[] {
+                        this.tableChurch.churchIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableChurchService.church_idColumn}, false);
+            this.Relations.Add(this.relationFK__ChurchSer__churc__3C69FB99);
+            this.relationFK__ChurchSer__pries__3B75D760 = new global::System.Data.DataRelation("FK__ChurchSer__pries__3B75D760", new global::System.Data.DataColumn[] {
                         this.tablePriest.PriestIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableChurchService.priest_idColumn}, false);
-            this.Relations.Add(this.relationFK__ChurchSer__pries__3C69FB99);
-            this.relationFK__Priest__church_i__398D8EEE = new global::System.Data.DataRelation("FK__Priest__church_i__398D8EEE", new global::System.Data.DataColumn[] {
-                        this.tableChurch.ChurchIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePriest.church_idColumn}, false);
-            this.Relations.Add(this.relationFK__Priest__church_i__398D8EEE);
+            this.Relations.Add(this.relationFK__ChurchSer__pries__3B75D760);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -363,11 +363,11 @@ namespace _1PractPractika {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ChurchDataTable : global::System.Data.TypedTableBase<ChurchRow> {
             
-            private global::System.Data.DataColumn columnChurchID;
+            private global::System.Data.DataColumn columnchurchID;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnname;
             
-            private global::System.Data.DataColumn columnAddress;
+            private global::System.Data.DataColumn columnaddress;
             
             private global::System.Data.DataColumn columnestablished_date;
             
@@ -406,25 +406,25 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ChurchIDColumn {
+            public global::System.Data.DataColumn churchIDColumn {
                 get {
-                    return this.columnChurchID;
+                    return this.columnchurchID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn nameColumn {
                 get {
-                    return this.columnName;
+                    return this.columnname;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AddressColumn {
+            public global::System.Data.DataColumn addressColumn {
                 get {
-                    return this.columnAddress;
+                    return this.columnaddress;
                 }
             }
             
@@ -473,12 +473,12 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChurchRow AddChurchRow(string Name, string Address, System.DateTime established_date) {
+            public ChurchRow AddChurchRow(string name, string address, System.DateTime established_date) {
                 ChurchRow rowChurchRow = ((ChurchRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name,
-                        Address,
+                        name,
+                        address,
                         established_date};
                 rowChurchRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChurchRow);
@@ -487,9 +487,9 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChurchRow FindByChurchID(int ChurchID) {
+            public ChurchRow FindBychurchID(int churchID) {
                 return ((ChurchRow)(this.Rows.Find(new object[] {
-                            ChurchID})));
+                            churchID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -509,35 +509,35 @@ namespace _1PractPractika {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnChurchID = base.Columns["ChurchID"];
-                this.columnName = base.Columns["Name"];
-                this.columnAddress = base.Columns["Address"];
+                this.columnchurchID = base.Columns["churchID"];
+                this.columnname = base.Columns["name"];
+                this.columnaddress = base.Columns["address"];
                 this.columnestablished_date = base.Columns["established_date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnChurchID = new global::System.Data.DataColumn("ChurchID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChurchID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAddress);
+                this.columnchurchID = new global::System.Data.DataColumn("churchID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchurchID);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaddress);
                 this.columnestablished_date = new global::System.Data.DataColumn("established_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestablished_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnChurchID}, true));
-                this.columnChurchID.AutoIncrement = true;
-                this.columnChurchID.AutoIncrementSeed = -1;
-                this.columnChurchID.AutoIncrementStep = -1;
-                this.columnChurchID.AllowDBNull = false;
-                this.columnChurchID.ReadOnly = true;
-                this.columnChurchID.Unique = true;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 100;
-                this.columnAddress.AllowDBNull = false;
-                this.columnAddress.MaxLength = 255;
+                                this.columnchurchID}, true));
+                this.columnchurchID.AutoIncrement = true;
+                this.columnchurchID.AutoIncrementSeed = -1;
+                this.columnchurchID.AutoIncrementStep = -1;
+                this.columnchurchID.AllowDBNull = false;
+                this.columnchurchID.ReadOnly = true;
+                this.columnchurchID.Unique = true;
+                this.columnname.AllowDBNull = false;
+                this.columnname.MaxLength = 100;
+                this.columnaddress.AllowDBNull = false;
+                this.columnaddress.MaxLength = 255;
                 this.columnestablished_date.AllowDBNull = false;
             }
             
@@ -672,7 +672,7 @@ namespace _1PractPractika {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ChurchServiceDataTable : global::System.Data.TypedTableBase<ChurchServiceRow> {
             
-            private global::System.Data.DataColumn columnChurchServiceID;
+            private global::System.Data.DataColumn columnchurchServiceID;
             
             private global::System.Data.DataColumn columnservice_date;
             
@@ -715,9 +715,9 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ChurchServiceIDColumn {
+            public global::System.Data.DataColumn churchServiceIDColumn {
                 get {
-                    return this.columnChurchServiceID;
+                    return this.columnchurchServiceID;
                 }
             }
             
@@ -782,15 +782,18 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChurchServiceRow AddChurchServiceRow(System.DateTime service_date, PriestRow parentPriestRowByFK__ChurchSer__pries__3C69FB99, int church_id) {
+            public ChurchServiceRow AddChurchServiceRow(System.DateTime service_date, PriestRow parentPriestRowByFK__ChurchSer__pries__3B75D760, ChurchRow parentChurchRowByFK__ChurchSer__churc__3C69FB99) {
                 ChurchServiceRow rowChurchServiceRow = ((ChurchServiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         service_date,
                         null,
-                        church_id};
-                if ((parentPriestRowByFK__ChurchSer__pries__3C69FB99 != null)) {
-                    columnValuesArray[2] = parentPriestRowByFK__ChurchSer__pries__3C69FB99[0];
+                        null};
+                if ((parentPriestRowByFK__ChurchSer__pries__3B75D760 != null)) {
+                    columnValuesArray[2] = parentPriestRowByFK__ChurchSer__pries__3B75D760[0];
+                }
+                if ((parentChurchRowByFK__ChurchSer__churc__3C69FB99 != null)) {
+                    columnValuesArray[3] = parentChurchRowByFK__ChurchSer__churc__3C69FB99[0];
                 }
                 rowChurchServiceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChurchServiceRow);
@@ -799,9 +802,9 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChurchServiceRow FindByChurchServiceID(int ChurchServiceID) {
+            public ChurchServiceRow FindBychurchServiceID(int churchServiceID) {
                 return ((ChurchServiceRow)(this.Rows.Find(new object[] {
-                            ChurchServiceID})));
+                            churchServiceID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -821,7 +824,7 @@ namespace _1PractPractika {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnChurchServiceID = base.Columns["ChurchServiceID"];
+                this.columnchurchServiceID = base.Columns["churchServiceID"];
                 this.columnservice_date = base.Columns["service_date"];
                 this.columnpriest_id = base.Columns["priest_id"];
                 this.columnchurch_id = base.Columns["church_id"];
@@ -830,8 +833,8 @@ namespace _1PractPractika {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnChurchServiceID = new global::System.Data.DataColumn("ChurchServiceID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChurchServiceID);
+                this.columnchurchServiceID = new global::System.Data.DataColumn("churchServiceID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnchurchServiceID);
                 this.columnservice_date = new global::System.Data.DataColumn("service_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnservice_date);
                 this.columnpriest_id = new global::System.Data.DataColumn("priest_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -839,13 +842,13 @@ namespace _1PractPractika {
                 this.columnchurch_id = new global::System.Data.DataColumn("church_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnchurch_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnChurchServiceID}, true));
-                this.columnChurchServiceID.AutoIncrement = true;
-                this.columnChurchServiceID.AutoIncrementSeed = -1;
-                this.columnChurchServiceID.AutoIncrementStep = -1;
-                this.columnChurchServiceID.AllowDBNull = false;
-                this.columnChurchServiceID.ReadOnly = true;
-                this.columnChurchServiceID.Unique = true;
+                                this.columnchurchServiceID}, true));
+                this.columnchurchServiceID.AutoIncrement = true;
+                this.columnchurchServiceID.AutoIncrementSeed = -1;
+                this.columnchurchServiceID.AutoIncrementStep = -1;
+                this.columnchurchServiceID.AllowDBNull = false;
+                this.columnchurchServiceID.ReadOnly = true;
+                this.columnchurchServiceID.Unique = true;
                 this.columnservice_date.AllowDBNull = false;
             }
             
@@ -990,8 +993,6 @@ namespace _1PractPractika {
             
             private global::System.Data.DataColumn columnierarch_position;
             
-            private global::System.Data.DataColumn columnchurch_id;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PriestDataTable() {
@@ -1067,14 +1068,6 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn church_idColumn {
-                get {
-                    return this.columnchurch_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1110,18 +1103,14 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PriestRow AddPriestRow(string first_name, string last_name, string middle_name, string ierarch_position, ChurchRow parentChurchRowByFK__Priest__church_i__398D8EEE) {
+            public PriestRow AddPriestRow(string first_name, string last_name, string middle_name, string ierarch_position) {
                 PriestRow rowPriestRow = ((PriestRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         first_name,
                         last_name,
                         middle_name,
-                        ierarch_position,
-                        null};
-                if ((parentChurchRowByFK__Priest__church_i__398D8EEE != null)) {
-                    columnValuesArray[5] = parentChurchRowByFK__Priest__church_i__398D8EEE[0];
-                }
+                        ierarch_position};
                 rowPriestRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPriestRow);
                 return rowPriestRow;
@@ -1156,7 +1145,6 @@ namespace _1PractPractika {
                 this.columnlast_name = base.Columns["last_name"];
                 this.columnmiddle_name = base.Columns["middle_name"];
                 this.columnierarch_position = base.Columns["ierarch_position"];
-                this.columnchurch_id = base.Columns["church_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1172,8 +1160,6 @@ namespace _1PractPractika {
                 base.Columns.Add(this.columnmiddle_name);
                 this.columnierarch_position = new global::System.Data.DataColumn("ierarch_position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnierarch_position);
-                this.columnchurch_id = new global::System.Data.DataColumn("church_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnchurch_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPriestID}, true));
                 this.columnPriestID.AutoIncrement = true;
@@ -1331,34 +1317,34 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ChurchID {
+            public int churchID {
                 get {
-                    return ((int)(this[this.tableChurch.ChurchIDColumn]));
+                    return ((int)(this[this.tableChurch.churchIDColumn]));
                 }
                 set {
-                    this[this.tableChurch.ChurchIDColumn] = value;
+                    this[this.tableChurch.churchIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Name {
+            public string name {
                 get {
-                    return ((string)(this[this.tableChurch.NameColumn]));
+                    return ((string)(this[this.tableChurch.nameColumn]));
                 }
                 set {
-                    this[this.tableChurch.NameColumn] = value;
+                    this[this.tableChurch.nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Address {
+            public string address {
                 get {
-                    return ((string)(this[this.tableChurch.AddressColumn]));
+                    return ((string)(this[this.tableChurch.addressColumn]));
                 }
                 set {
-                    this[this.tableChurch.AddressColumn] = value;
+                    this[this.tableChurch.addressColumn] = value;
                 }
             }
             
@@ -1375,12 +1361,12 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PriestRow[] GetPriestRows() {
-                if ((this.Table.ChildRelations["FK__Priest__church_i__398D8EEE"] == null)) {
-                    return new PriestRow[0];
+            public ChurchServiceRow[] GetChurchServiceRows() {
+                if ((this.Table.ChildRelations["FK__ChurchSer__churc__3C69FB99"] == null)) {
+                    return new ChurchServiceRow[0];
                 }
                 else {
-                    return ((PriestRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Priest__church_i__398D8EEE"])));
+                    return ((ChurchServiceRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ChurchSer__churc__3C69FB99"])));
                 }
             }
         }
@@ -1401,12 +1387,12 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ChurchServiceID {
+            public int churchServiceID {
                 get {
-                    return ((int)(this[this.tableChurchService.ChurchServiceIDColumn]));
+                    return ((int)(this[this.tableChurchService.churchServiceIDColumn]));
                 }
                 set {
-                    this[this.tableChurchService.ChurchServiceIDColumn] = value;
+                    this[this.tableChurchService.churchServiceIDColumn] = value;
                 }
             }
             
@@ -1455,12 +1441,23 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PriestRow PriestRow {
+            public ChurchRow ChurchRow {
                 get {
-                    return ((PriestRow)(this.GetParentRow(this.Table.ParentRelations["FK__ChurchSer__pries__3C69FB99"])));
+                    return ((ChurchRow)(this.GetParentRow(this.Table.ParentRelations["FK__ChurchSer__churc__3C69FB99"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ChurchSer__pries__3C69FB99"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ChurchSer__churc__3C69FB99"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PriestRow PriestRow {
+                get {
+                    return ((PriestRow)(this.GetParentRow(this.Table.ParentRelations["FK__ChurchSer__pries__3B75D760"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ChurchSer__pries__3B75D760"]);
                 }
             }
             
@@ -1565,33 +1562,6 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int church_id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePriest.church_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'church_id\' в таблице \'Priest\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePriest.church_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChurchRow ChurchRow {
-                get {
-                    return ((ChurchRow)(this.GetParentRow(this.Table.ParentRelations["FK__Priest__church_i__398D8EEE"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Priest__church_i__398D8EEE"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Ismiddle_nameNull() {
                 return this.IsNull(this.tablePriest.middle_nameColumn);
             }
@@ -1604,24 +1574,12 @@ namespace _1PractPractika {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ischurch_idNull() {
-                return this.IsNull(this.tablePriest.church_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setchurch_idNull() {
-                this[this.tablePriest.church_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ChurchServiceRow[] GetChurchServiceRows() {
-                if ((this.Table.ChildRelations["FK__ChurchSer__pries__3C69FB99"] == null)) {
+                if ((this.Table.ChildRelations["FK__ChurchSer__pries__3B75D760"] == null)) {
                     return new ChurchServiceRow[0];
                 }
                 else {
-                    return ((ChurchServiceRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ChurchSer__pries__3C69FB99"])));
+                    return ((ChurchServiceRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ChurchSer__pries__3B75D760"])));
                 }
             }
         }
@@ -1853,43 +1811,43 @@ namespace _1PractPractika.DataSet1TableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Church";
-            tableMapping.ColumnMappings.Add("ChurchID", "ChurchID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("Address", "Address");
+            tableMapping.ColumnMappings.Add("churchID", "churchID");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("address", "address");
             tableMapping.ColumnMappings.Add("established_date", "established_date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Church] WHERE (([ChurchID] = @Original_ChurchID) AND ([Name] =" +
-                " @Original_Name) AND ([Address] = @Original_Address) AND ([established_date] = @" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Church] WHERE (([churchID] = @Original_churchID) AND ([name] =" +
+                " @Original_name) AND ([address] = @Original_address) AND ([established_date] = @" +
                 "Original_established_date))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChurchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_churchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "churchID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_established_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "established_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Church] ([Name], [Address], [established_date]) VALUES (@Name," +
-                " @Address, @established_date);\r\nSELECT ChurchID, Name, Address, established_date" +
-                " FROM Church WHERE (ChurchID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Church] ([name], [address], [established_date]) VALUES (@name," +
+                " @address, @established_date);\r\nSELECT churchID, name, address, established_date" +
+                " FROM Church WHERE (churchID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@established_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "established_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Church] SET [Name] = @Name, [Address] = @Address, [established_date] = @established_date WHERE (([ChurchID] = @Original_ChurchID) AND ([Name] = @Original_Name) AND ([Address] = @Original_Address) AND ([established_date] = @Original_established_date));
-SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @ChurchID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Church] SET [name] = @name, [address] = @address, [established_date] = @established_date WHERE (([churchID] = @Original_churchID) AND ([name] = @Original_name) AND ([address] = @Original_address) AND ([established_date] = @Original_established_date));
+SELECT churchID, name, address, established_date FROM Church WHERE (churchID = @churchID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@established_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "established_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChurchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_churchID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "churchID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_established_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "established_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChurchID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@churchID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "churchID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1905,7 +1863,7 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ChurchID, Name, Address, established_date FROM dbo.Church";
+            this._commandCollection[0].CommandText = "SELECT churchID, name, address, established_date FROM dbo.Church";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1966,19 +1924,19 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ChurchID, string Original_Name, string Original_Address, System.DateTime Original_established_date) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ChurchID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+        public virtual int Delete(int Original_churchID, string Original_name, string Original_address, System.DateTime Original_established_date) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_churchID));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
-            if ((Original_Address == null)) {
-                throw new global::System.ArgumentNullException("Original_Address");
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Address));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_address));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_established_date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -2001,18 +1959,18 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Address, System.DateTime established_date) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Insert(string name, string address, System.DateTime established_date) {
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
             }
-            if ((Address == null)) {
-                throw new global::System.ArgumentNullException("Address");
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Address));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(address));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(established_date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
@@ -2035,35 +1993,35 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Address, System.DateTime established_date, int Original_ChurchID, string Original_Name, string Original_Address, System.DateTime Original_established_date, int ChurchID) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Update(string name, string address, System.DateTime established_date, int Original_churchID, string Original_name, string Original_address, System.DateTime Original_established_date, int churchID) {
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
-            if ((Address == null)) {
-                throw new global::System.ArgumentNullException("Address");
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Address));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(address));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(established_date));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ChurchID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_churchID));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
             }
-            if ((Original_Address == null)) {
-                throw new global::System.ArgumentNullException("Original_Address");
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_address));
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_established_date));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ChurchID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(churchID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2084,8 +2042,8 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Address, System.DateTime established_date, int Original_ChurchID, string Original_Name, string Original_Address, System.DateTime Original_established_date) {
-            return this.Update(Name, Address, established_date, Original_ChurchID, Original_Name, Original_Address, Original_established_date, Original_ChurchID);
+        public virtual int Update(string name, string address, System.DateTime established_date, int Original_churchID, string Original_name, string Original_address, System.DateTime Original_established_date) {
+            return this.Update(name, address, established_date, Original_churchID, Original_name, Original_address, Original_established_date, Original_churchID);
         }
     }
     
@@ -2210,16 +2168,16 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ChurchService";
-            tableMapping.ColumnMappings.Add("ChurchServiceID", "ChurchServiceID");
+            tableMapping.ColumnMappings.Add("churchServiceID", "churchServiceID");
             tableMapping.ColumnMappings.Add("service_date", "service_date");
             tableMapping.ColumnMappings.Add("priest_id", "priest_id");
             tableMapping.ColumnMappings.Add("church_id", "church_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ChurchService] WHERE (([ChurchServiceID] = @Original_ChurchServiceID) AND ([service_date] = @Original_service_date) AND ((@IsNull_priest_id = 1 AND [priest_id] IS NULL) OR ([priest_id] = @Original_priest_id)) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ChurchService] WHERE (([churchServiceID] = @Original_churchServiceID) AND ([service_date] = @Original_service_date) AND ((@IsNull_priest_id = 1 AND [priest_id] IS NULL) OR ([priest_id] = @Original_priest_id)) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChurchServiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchServiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_churchServiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "churchServiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_service_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "service_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_priest_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priest_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_priest_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priest_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2228,8 +2186,8 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ChurchService] ([service_date], [priest_id], [church_id]) VALU" +
-                "ES (@service_date, @priest_id, @church_id);\r\nSELECT ChurchServiceID, service_dat" +
-                "e, priest_id, church_id FROM ChurchService WHERE (ChurchServiceID = SCOPE_IDENTI" +
+                "ES (@service_date, @priest_id, @church_id);\r\nSELECT churchServiceID, service_dat" +
+                "e, priest_id, church_id FROM ChurchService WHERE (churchServiceID = SCOPE_IDENTI" +
                 "TY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@service_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "service_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2237,19 +2195,19 @@ SELECT ChurchID, Name, Address, established_date FROM Church WHERE (ChurchID = @
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ChurchService] SET [service_date] = @service_date, [priest_id] = @priest_id, [church_id] = @church_id WHERE (([ChurchServiceID] = @Original_ChurchServiceID) AND ([service_date] = @Original_service_date) AND ((@IsNull_priest_id = 1 AND [priest_id] IS NULL) OR ([priest_id] = @Original_priest_id)) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)));
-SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WHERE (ChurchServiceID = @ChurchServiceID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ChurchService] SET [service_date] = @service_date, [priest_id] = @priest_id, [church_id] = @church_id WHERE (([churchServiceID] = @Original_churchServiceID) AND ([service_date] = @Original_service_date) AND ((@IsNull_priest_id = 1 AND [priest_id] IS NULL) OR ([priest_id] = @Original_priest_id)) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)));
+SELECT churchServiceID, service_date, priest_id, church_id FROM ChurchService WHERE (churchServiceID = @churchServiceID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@service_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "service_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@priest_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priest_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChurchServiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchServiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_churchServiceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "churchServiceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_service_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "service_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_priest_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priest_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_priest_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "priest_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChurchServiceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ChurchServiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@churchServiceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "churchServiceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2265,7 +2223,7 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ChurchServiceID, service_date, priest_id, church_id FROM dbo.ChurchService" +
+            this._commandCollection[0].CommandText = "SELECT churchServiceID, service_date, priest_id, church_id FROM dbo.ChurchService" +
                 "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -2327,8 +2285,8 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ChurchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ChurchServiceID));
+        public virtual int Delete(int Original_churchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_churchServiceID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_service_date));
             if ((Original_priest_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
@@ -2400,7 +2358,7 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime service_date, global::System.Nullable<int> priest_id, global::System.Nullable<int> church_id, int Original_ChurchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id, int ChurchServiceID) {
+        public virtual int Update(System.DateTime service_date, global::System.Nullable<int> priest_id, global::System.Nullable<int> church_id, int Original_churchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id, int churchServiceID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(service_date));
             if ((priest_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(priest_id.Value));
@@ -2414,7 +2372,7 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ChurchServiceID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_churchServiceID));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_service_date));
             if ((Original_priest_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
@@ -2432,7 +2390,7 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ChurchServiceID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(churchServiceID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2453,8 +2411,8 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime service_date, global::System.Nullable<int> priest_id, global::System.Nullable<int> church_id, int Original_ChurchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id) {
-            return this.Update(service_date, priest_id, church_id, Original_ChurchServiceID, Original_service_date, Original_priest_id, Original_church_id, Original_ChurchServiceID);
+        public virtual int Update(System.DateTime service_date, global::System.Nullable<int> priest_id, global::System.Nullable<int> church_id, int Original_churchServiceID, System.DateTime Original_service_date, global::System.Nullable<int> Original_priest_id, global::System.Nullable<int> Original_church_id) {
+            return this.Update(service_date, priest_id, church_id, Original_churchServiceID, Original_service_date, Original_priest_id, Original_church_id, Original_churchServiceID);
         }
     }
     
@@ -2584,11 +2542,10 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
             tableMapping.ColumnMappings.Add("last_name", "last_name");
             tableMapping.ColumnMappings.Add("middle_name", "middle_name");
             tableMapping.ColumnMappings.Add("ierarch_position", "ierarch_position");
-            tableMapping.ColumnMappings.Add("church_id", "church_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Priest] WHERE (([PriestID] = @Original_PriestID) AND ([first_name] = @Original_first_name) AND ([last_name] = @Original_last_name) AND ((@IsNull_middle_name = 1 AND [middle_name] IS NULL) OR ([middle_name] = @Original_middle_name)) AND ([ierarch_position] = @Original_ierarch_position) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Priest] WHERE (([PriestID] = @Original_PriestID) AND ([first_name] = @Original_first_name) AND ([last_name] = @Original_last_name) AND ((@IsNull_middle_name = 1 AND [middle_name] IS NULL) OR ([middle_name] = @Original_middle_name)) AND ([ierarch_position] = @Original_ierarch_position))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriestID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriestID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_first_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2596,36 +2553,30 @@ SELECT ChurchServiceID, service_date, priest_id, church_id FROM ChurchService WH
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_middle_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_middle_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ierarch_position", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ierarch_position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Priest] ([first_name], [last_name], [middle_name], [ierarch_position], [church_id]) VALUES (@first_name, @last_name, @middle_name, @ierarch_position, @church_id);
-SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id FROM Priest WHERE (PriestID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Priest] ([first_name], [last_name], [middle_name], [ierarch_position]) VALUES (@first_name, @last_name, @middle_name, @ierarch_position);
+SELECT PriestID, first_name, last_name, middle_name, ierarch_position FROM Priest WHERE (PriestID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@middle_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ierarch_position", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ierarch_position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Priest] SET [first_name] = @first_name, [last_name] = @last_name, [middle_name] = @middle_name, [ierarch_position] = @ierarch_position, [church_id] = @church_id WHERE (([PriestID] = @Original_PriestID) AND ([first_name] = @Original_first_name) AND ([last_name] = @Original_last_name) AND ((@IsNull_middle_name = 1 AND [middle_name] IS NULL) OR ([middle_name] = @Original_middle_name)) AND ([ierarch_position] = @Original_ierarch_position) AND ((@IsNull_church_id = 1 AND [church_id] IS NULL) OR ([church_id] = @Original_church_id)));
-SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id FROM Priest WHERE (PriestID = @PriestID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Priest] SET [first_name] = @first_name, [last_name] = @last_name, [middle_name] = @middle_name, [ierarch_position] = @ierarch_position WHERE (([PriestID] = @Original_PriestID) AND ([first_name] = @Original_first_name) AND ([last_name] = @Original_last_name) AND ((@IsNull_middle_name = 1 AND [middle_name] IS NULL) OR ([middle_name] = @Original_middle_name)) AND ([ierarch_position] = @Original_ierarch_position));
+SELECT PriestID, first_name, last_name, middle_name, ierarch_position FROM Priest WHERE (PriestID = @PriestID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@middle_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ierarch_position", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ierarch_position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriestID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriestID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_first_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "first_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_last_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "last_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_middle_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_middle_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middle_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ierarch_position", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ierarch_position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_church_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "church_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PriestID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PriestID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2642,8 +2593,8 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id " +
-                "FROM dbo.Priest";
+            this._commandCollection[0].CommandText = "SELECT PriestID, first_name, last_name, middle_name, ierarch_position FROM dbo.Pr" +
+                "iest";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2704,7 +2655,7 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position, global::System.Nullable<int> Original_church_id) {
+        public virtual int Delete(int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PriestID));
             if ((Original_first_name == null)) {
                 throw new global::System.ArgumentNullException("Original_first_name");
@@ -2732,14 +2683,6 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_ierarch_position));
             }
-            if ((Original_church_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_church_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2760,7 +2703,7 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string first_name, string last_name, string middle_name, string ierarch_position, global::System.Nullable<int> church_id) {
+        public virtual int Insert(string first_name, string last_name, string middle_name, string ierarch_position) {
             if ((first_name == null)) {
                 throw new global::System.ArgumentNullException("first_name");
             }
@@ -2785,12 +2728,6 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ierarch_position));
             }
-            if ((church_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(church_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2811,7 +2748,7 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string first_name, string last_name, string middle_name, string ierarch_position, global::System.Nullable<int> church_id, int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position, global::System.Nullable<int> Original_church_id, int PriestID) {
+        public virtual int Update(string first_name, string last_name, string middle_name, string ierarch_position, int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position, int PriestID) {
             if ((first_name == null)) {
                 throw new global::System.ArgumentNullException("first_name");
             }
@@ -2836,48 +2773,34 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ierarch_position));
             }
-            if ((church_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(church_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PriestID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PriestID));
             if ((Original_first_name == null)) {
                 throw new global::System.ArgumentNullException("Original_first_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_first_name));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_first_name));
             }
             if ((Original_last_name == null)) {
                 throw new global::System.ArgumentNullException("Original_last_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_last_name));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_last_name));
             }
             if ((Original_middle_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_middle_name));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_middle_name));
             }
             if ((Original_ierarch_position == null)) {
                 throw new global::System.ArgumentNullException("Original_ierarch_position");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_ierarch_position));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_ierarch_position));
             }
-            if ((Original_church_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_church_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(PriestID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(PriestID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2898,8 +2821,8 @@ SELECT PriestID, first_name, last_name, middle_name, ierarch_position, church_id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string first_name, string last_name, string middle_name, string ierarch_position, global::System.Nullable<int> church_id, int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position, global::System.Nullable<int> Original_church_id) {
-            return this.Update(first_name, last_name, middle_name, ierarch_position, church_id, Original_PriestID, Original_first_name, Original_last_name, Original_middle_name, Original_ierarch_position, Original_church_id, Original_PriestID);
+        public virtual int Update(string first_name, string last_name, string middle_name, string ierarch_position, int Original_PriestID, string Original_first_name, string Original_last_name, string Original_middle_name, string Original_ierarch_position) {
+            return this.Update(first_name, last_name, middle_name, ierarch_position, Original_PriestID, Original_first_name, Original_last_name, Original_middle_name, Original_ierarch_position, Original_PriestID);
         }
     }
     
